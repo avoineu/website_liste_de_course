@@ -19,7 +19,7 @@ app.post("/add", async function (req, res) {
 });
 
 app.get("/delete/:id", async function (req, res) {
-  await Database.delete({ id: req.params.id });
+  await Database.delete({ id_item: req.params.id });
   res.redirect('/');
 });
 
