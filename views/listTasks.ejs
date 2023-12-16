@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/styles.css">
+<h1>Sites pour les courses</h1>
+<h2>Liste des articles à acheter</h2>
+<ul>
+  <% for(elem of colonnes) { %>
+    <li class="<%= elem.purchased !== 0 ? 'crossed' : '' %>">
+      <%= elem.name %> <%= elem.quantity %> <%= elem.purchased %>-
+       <a href="/delete/<%= elem.id_item %>">Effacer</a> 
+       <% if (elem.purchased === 0) { %>
+        <a href="/bought/<%= elem.id_item %>">Acheté</a>
+      <% } %>
+    </li>
+  <% } %>
+</ul>
+
+<form action="/addanarticle" method="GET">
+  <input type="submit" id="bleu" value="Ajouter un article" />
+</form> 
